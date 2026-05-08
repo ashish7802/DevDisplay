@@ -11,6 +11,18 @@
       content="DevDisplay, open source, community, Paradise, tech skills, collaboration, tech platform, developers, devdisplay, devdisplay org, developers, opensource, developer community, tech community, Dev Display, dev display, tech hub, Paradise for developers"
     />
     <meta property="og:title" content="DevDisplay - Paradise for developers" />
+    <script>
+      (function () {
+        try {
+          var p = window.location.pathname.replace(/\/+$/g, '').toLowerCase();
+          if (p === '/home' || p === '/v3') {
+            window.location.replace('/v3.html');
+          }
+        } catch (e) {
+          /* ignore */
+        }
+      })();
+    </script>
     <link rel="apple-touch-icon" sizes="180x180" href="/Newicon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/Newicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/Newicon.png" />

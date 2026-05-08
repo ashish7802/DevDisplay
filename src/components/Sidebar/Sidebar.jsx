@@ -25,7 +25,7 @@ function Sidebar() {
   // }
 
   function handleHome() {
-    navigate('/Home');
+    navigate('/v3');
   }
 
   // function handleAboutUs() {
@@ -137,7 +137,7 @@ function Sidebar() {
         <button className="button" onClick={handleHome}>
           <div className="blob1" />
           <div className="blob2" />
-          <div className="inner">DevDisplay Paradise</div>
+          <div className="inner">DevDisplay v3.0</div>
         </button>
       </StyledWrapper>
     </div>

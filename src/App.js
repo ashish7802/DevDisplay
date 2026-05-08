@@ -5,7 +5,8 @@ import { Helmet } from 'react-helmet';
 import { Analytics } from '@vercel/analytics/react';
 import Homepage from './Homepage';
 // Introducing DevDisplay
-import Home from './Page/Home.jsx';
+// import home from './page/Home.jsx';
+import V3Page from './Page/V3Page.jsx';
 // NavBar Pages
 import About from './Page/About.jsx';
 import Connect from './Page/Connect.jsx';
@@ -106,7 +107,8 @@ function App() {
       <Routes>
         <Route index element={<Homepage />} />
         {/* Introducing DevDisplay */}
-        <Route path="/Home" element={<Home />} />
+        {/* <Route path="/Home" element={<Home />} /> */}
+        <Route path="/v3" element={<V3Page />} />
         {/* NavBar Pages */}
         <Route path="/About" element={<About />} />
         <Route path="/Connect" element={<Connect />} />

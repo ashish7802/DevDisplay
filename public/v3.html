@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <title>404 Not Found</title>
+
+    <meta
+      name="description"
+      content="Engage with a tactile 3D paper receipt featuring a cloth physics engine. Drag, ripple, and interact with this unique 404 error page experience."
+    />
+    <meta
+      name="keywords"
+      content="Three.js, Cloth Physics, WebGL, Simulation, Interactive Art, 404 Error, Verlet Integration, Paper Simulation"
+    />
+    <meta name="author" content="aashuu" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="application-name" content="Interactive 404 Receipt Physics Simulation" />
+    <meta name="apple-mobile-web-app-title" content="Interactive 404 Receipt Physics Simulation" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <meta property="og:site_name" content="aashuu" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Interactive 404 Receipt Physics Simulation" />
+    <meta
+      property="og:description"
+      content="Engage with a tactile 3D paper receipt featuring a cloth physics engine. Drag, ripple, and interact with this unique 404 error page experience."
+    />
+    <meta property="og:url" content="https://404.aashuu.tech" />
+    <meta property="og:image" content="https://404.aashuu.tech/images/404.png" />
+    <meta property="og:image:alt" content="Interactive 404 Receipt Physics Simulation" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="article:published_time" content="2026-02-26T21:46:43.567Z" />
+    <meta property="article:author" content="aashuu" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@warrioraashuu" />
+    <meta name="twitter:creator" content="@warrioraashuu" />
+    <meta name="twitter:title" content="Interactive 404 Receipt Physics Simulation" />
+    <meta
+      name="twitter:description"
+      content="Engage with a tactile 3D paper receipt featuring a cloth physics engine. Drag, ripple, and interact with this unique 404 error page experience."
+    />
+    <meta name="twitter:image" content="https://404.aashuu.tech/images/404.png" />
+    <meta name="twitter:domain" content="404.aashuu.tech" />
+    <meta name="twitter:url" content="https://404.aashuu.tech" />
+
+    <link rel="canonical" href="https://404.aashuu.tech" />
+    <link rel="icon" type="image/png" href="./assets/aashuuprofile.png" />
+    <link rel="apple-touch-icon" href="./assets/aashuuprofile.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Interactive 404 Receipt Physics Simulation",
+        "description": "Engage with a tactile 3D paper receipt featuring a cloth physics engine. Drag, ripple, and interact with this unique 404 error page experience.",
+        "url": "https://404.aashuu.tech",
+        "image": "https://404.aashuu.tech/images/404.png",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://404.aashuu.tech/images/404.png"
+        },
+        "datePublished": "2026-02-26T21:46:43.567Z",
+        "dateModified": "2026-02-26T21:46:43.567Z",
+        "author": {
+          "@type": "Person",
+          "name": "aashuu",
+          "url": "https://www.aashuu.tech/",
+          "sameAs": ["https://x.com/warrioraashuu", "https://www.linkedin.com/in/ashutoshkumaraashu/"]
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "aashuu",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.aashuu.tech/logo.png"
+          }
+        },
+        "mainEntity": {
+          "@type": "WebApplication",
+          "name": "Interactive 404 Receipt Physics Simulation",
+          "description": "Engage with a tactile 3D paper receipt featuring a cloth physics engine. Drag, ripple, and interact with this unique 404 error page experience.",
+          "image": "https://404.aashuu.tech/images/404.png",
+          "operatingSystem": "Any",
+          "applicationCategory": "Simulation",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "aashuu",
+            "url": "https://www.aashuu.tech/"
+          },
+          "datePublished": "2026-02-26T21:46:43.567Z",
+          "inLanguage": "en-US"
+        }
+      }
+    </script>
+
+    <meta charset="UTF-8" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+      body {
+        margin: 0;
+        overflow: hidden;
+        background-color: #f2f2f2;
+        font-family: 'Inter', sans-serif;
+        touch-action: none;
+        user-select: none;
+      }
+
+      /* PAINTERLY BACKGROUND CANVAS */
+      #gardenCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        filter: blur(60px);
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      canvas {
+        display: block;
+        position: relative;
+        z-index: 1;
+      }
+      #ui-overlay {
+        position: absolute;
+        bottom: 2.5rem;
+        width: 100%;
+        text-align: center;
+        color: #444;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        font-weight: 600;
+        opacity: 0.8;
+        z-index: 10;
+      }
+      #ui-overlay a {
+        pointer-events: auto;
+        color: #222;
+        text-decoration: none;
+        transition: color 0.2s;
+        border-bottom: 1px solid transparent;
+      }
+      #ui-overlay a:hover {
+        color: #000;
+        border-bottom: 1px solid #000;
+      }
+      .cursor-grab {
+        cursor: grab;
+      }
+      .cursor-grabbing {
+        cursor: grabbing;
+      }
+    </style>
+  </head>
+  <body class="cursor-grab">
+    <!-- Generative Background -->
+    <canvas id="gardenCanvas"></canvas>
+
+    <h1 class="sr-only">Interactive 404 Receipt Physics Simulation</h1>
+
+    <div class="sr-only" aria-live="polite">
+      <h2>DevDisplay v3.0</h2>
+      <p>www.devdisplay.org</p>
+      <p>Path: /cooking</p>
+      <p>Requested resource is cooking...</p>
+      <ul>
+        <li>Projects Shipped: 50+</li>
+        <li>Open Tabs: Infinite</li>
+        <li>Ideas in Queue: 404</li>
+        <li>Developers Connected: Growing</li>
+        <li>System Mode: Building</li>
+        <li>Heartbeat: ACTIVE</li>
+      </ul>
+      <p>Play with this paper while v3.0 finishes deploying.</p>
+    </div>
+
+    <div id="ui-overlay">Connect here ✦ <a href="https://www.linkedin.com/company/devdisplay/">LnkedIn</a></div>
+
+    <script>
+      /**
+       * GENERATIVE BACKGROUND LOGIC (from Lost in the Garden)
+       */
+      const gardenCanvas = document.getElementById('gardenCanvas');
+      const gctx = gardenCanvas.getContext('2d');
+      let blobs = [];
+
+      // Random base hue for every page load to keep things fresh
+      const baseHue = Math.floor(Math.random() * 360);
+
+      class GardenBlob {
+        constructor() {
+          this.init();
+        }
+        init() {
+          this.radius = Math.random() * 300 + 150;
+          this.x = Math.random() * gardenCanvas.width;
+          this.y = Math.random() * gardenCanvas.height;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() - 0.5) * 0.4;
+          this.baseRadius = this.radius;
+          this.angle = Math.random() * Math.PI * 2;
+          this.angleVel = 0.002 + Math.random() * 0.005;
+          this.hue = (baseHue + (Math.random() * 80 - 40) + 360) % 360;
+          this.opacity = 0.15 + Math.random() * 0.25;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.angle += this.angleVel;
+          this.radius = this.baseRadius + Math.sin(this.angle) * 50;
+          if (this.x < -this.radius) this.x = gardenCanvas.width + this.radius;
+          if (this.x > gardenCanvas.width + this.radius) this.x = -this.radius;
+          if (this.y < -this.radius) this.y = gardenCanvas.height + this.radius;
+          if (this.y > gardenCanvas.height + this.radius) this.y = -this.radius;
+        }
+        draw() {
+          const grad = gctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+          grad.addColorStop(0, `hsla(${this.hue}, 60%, 50%, ${this.opacity})`);
+          grad.addColorStop(1, `hsla(${this.hue}, 40%, 30%, 0)`);
+          gctx.fillStyle = grad;
+          gctx.beginPath();
+          gctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          gctx.fill();
+        }
+      }
+
+      function initGarden() {
+        gardenCanvas.width = window.innerWidth;
+        gardenCanvas.height = window.innerHeight;
+        blobs = [];
+        for (let i = 0; i < 8; i++) blobs.push(new GardenBlob());
+      }
+
+      function updateGarden() {
+        gctx.fillStyle = '#f2f2f2';
+        gctx.fillRect(0, 0, gardenCanvas.width, gardenCanvas.height);
+        blobs.forEach((b) => {
+          b.update();
+          b.draw();
+        });
+      }
+
+      /**
+       * 3D RECEIPT PHYSICS CONFIG
+       */
+      const CLOTH_WIDTH = 11;
+      const CLOTH_HEIGHT = 18.5;
+      const NX = 38;
+      const NY = 58;
+      const DAMPING = 0.94;
+      const GRAVITY = -0.045;
+      const PIN_Y = 9.25;
+
+      class Particle {
+        constructor(x, y, z) {
+          this.pos = new THREE.Vector3(x, y, z);
+          this.old = new THREE.Vector3(x, y, z);
+          this.acc = new THREE.Vector3(0, 0, 0);
+          this.pinned = false;
+        }
+        addForce(force) {
+          this.acc.add(force);
+        }
+        update(dt) {
+          if (this.pinned) return;
+          let vel = this.pos.clone().sub(this.old).multiplyScalar(DAMPING);
+          this.old.copy(this.pos);
+          this.pos.add(vel).add(this.acc.clone().multiplyScalar(dt * dt));
+          this.acc.set(0, 0, 0);
+          if (this.pos.y > PIN_Y) {
+            this.pos.y = PIN_Y;
+            if (this.old.y > PIN_Y) this.old.y = PIN_Y;
+          }
+        }
+      }
+
+      class Constraint {
+        constructor(p1, p2, dist, stiffness = 1.0) {
+          this.p1 = p1;
+          this.p2 = p2;
+          this.dist = dist;
+          this.stiffness = stiffness;
+        }
+        resolve() {
+          let diff = this.p2.pos.clone().sub(this.p1.pos);
+          let cur = diff.length();
+          if (cur === 0) return;
+          let corr = diff.multiplyScalar((1 - this.dist / cur) * 0.5 * this.stiffness);
+          if (!this.p1.pinned) this.p1.pos.add(corr);
+          if (!this.p2.pinned) this.p2.pos.sub(corr);
+        }
+      }
+
+      let scene, camera, renderer, clothGeo;
+      let clothMeshFront, clothMeshBack;
+      let particles = [],
+        constraints = [];
+      let raycaster = new THREE.Raycaster(),
+        mouse = new THREE.Vector2();
+      let isDragging = false,
+        activeParticles = [];
+
+      function init() {
+        initGarden();
+
+        scene = new THREE.Scene();
+        scene.background = null;
+
+        camera = new THREE.PerspectiveCamera(28, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 0, 45);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        document.body.appendChild(renderer.domElement);
+
+        renderer.domElement.setAttribute('role', 'img');
+        renderer.domElement.setAttribute('aria-label', 'Interactive 3D simulation of a 404 error receipt.');
+
+        const ambient = new THREE.AmbientLight(0xffffff, 0.85);
+        scene.add(ambient);
+
+        const mainLight = new THREE.DirectionalLight(0xffffff, 0.7);
+        mainLight.position.set(2, 30, 20);
+        mainLight.castShadow = true;
+        mainLight.shadow.camera.left = -20;
+        mainLight.shadow.camera.right = 20;
+        mainLight.shadow.camera.top = 20;
+        mainLight.shadow.camera.bottom = -35;
+        mainLight.shadow.camera.near = 1;
+        mainLight.shadow.camera.far = 100;
+        mainLight.shadow.mapSize.set(2048, 2048);
+
+        mainLight.shadow.bias = -0.0002;
+        mainLight.shadow.radius = 12;
+        scene.add(mainLight);
+
+        const floor = new THREE.Mesh(new THREE.PlaneGeometry(300, 300), new THREE.ShadowMaterial({ opacity: 0.12 }));
+        floor.rotation.x = -Math.PI / 2;
+        floor.position.y = -22;
+        floor.receiveShadow = true;
+        scene.add(floor);
+
+        const chromeEnvMap = createChromeEnvMap();
+        const slotGroup = new THREE.Group();
+
+        const housing = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.5, 0.5, CLOTH_WIDTH + 2.5, 32),
+          new THREE.MeshStandardMaterial({
+            color: 0xcccccc,
+            roughness: 0.05,
+            metalness: 1.0,
+            envMap: chromeEnvMap,
+            envMapIntensity: 1.5,
+          }),
+        );
+        housing.rotation.z = Math.PI / 2;
+        housing.castShadow = false;
+        slotGroup.add(housing);
+
+        const slotRecess = new THREE.Mesh(
+          new THREE.BoxGeometry(CLOTH_WIDTH + 0.2, 0.1, 0.2),
+          new THREE.MeshBasicMaterial({ color: 0x000000 }),
+        );
+        slotRecess.position.y = -0.45;
+        slotRecess.position.z = 0.05;
+        slotGroup.add(slotRecess);
+
+        const capGeom = new THREE.CylinderGeometry(0.55, 0.55, 0.2, 32);
+        const capMat = new THREE.MeshStandardMaterial({
+          color: 0xffffff,
+          roughness: 0.02,
+          metalness: 1.0,
+          envMap: chromeEnvMap,
+        });
+        const leftCap = new THREE.Mesh(capGeom, capMat);
+        leftCap.rotation.z = Math.PI / 2;
+        leftCap.position.x = -(CLOTH_WIDTH + 2.5) / 2;
+        slotGroup.add(leftCap);
+        const rightCap = new THREE.Mesh(capGeom, capMat);
+        rightCap.rotation.z = Math.PI / 2;
+        rightCap.position.x = (CLOTH_WIDTH + 2.5) / 2;
+        slotGroup.add(rightCap);
+
+        slotGroup.position.y = PIN_Y + 0.3;
+        scene.add(slotGroup);
+
+        setupCloth();
+        onResize();
+        animate();
+
+        window.addEventListener('resize', onResize);
+        window.addEventListener('mousedown', onDown);
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('mouseup', onUp);
+        window.addEventListener('touchstart', (e) => onDown(e.touches[0]));
+        window.addEventListener('touchmove', (e) => onMove(e.touches[0]));
+        window.addEventListener('touchend', onUp);
+      }
+
+      function createChromeEnvMap() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 512;
+        canvas.height = 256;
+        const ctx = canvas.getContext('2d');
+        const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        grad.addColorStop(0, '#1a1a1a');
+        grad.addColorStop(0.4, '#888888');
+        grad.addColorStop(0.48, '#ffffff');
+        grad.addColorStop(0.52, '#222222');
+        grad.addColorStop(0.7, '#444444');
+        grad.addColorStop(1, '#111111');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#ffffff';
+        ctx.globalAlpha = 0.3;
+        ctx.fillRect(50, 20, 100, 80);
+        ctx.fillRect(350, 40, 60, 100);
+        const tex = new THREE.CanvasTexture(canvas);
+        tex.mapping = THREE.EquirectangularReflectionMapping;
+        return tex;
+      }
+
+      function createTexture(isBack = false) {
+        const canvas = document.createElement('canvas');
+        canvas.width = 1024;
+        canvas.height = 1800;
+        const ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        const rootShadow = ctx.createLinearGradient(0, 0, 0, 220);
+        rootShadow.addColorStop(0, 'rgba(0,0,0,0.4)');
+        rootShadow.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = rootShadow;
+        ctx.fillRect(0, 0, canvas.width, 220);
+
+        if (!isBack) {
+          const font = '"Courier Prime", Courier, monospace';
+          ctx.fillStyle = '#111';
+          ctx.textAlign = 'center';
+          ctx.font = `bold 72px ${font}`;
+          ctx.fillText('DevDisplay v3.0', canvas.width / 2, 180);
+          ctx.font = `32px ${font}`;
+          ctx.fillText('Dropping Soon!', canvas.width / 2, 240);
+          ctx.fillText('A new wave of social platform & software products.', canvas.width / 2, 285);
+          ctx.textAlign = 'left';
+          const m = 120;
+          ctx.font = `32px ${font}`;
+          const now = new Date();
+          const dateStr = now.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
+          const timeStr = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+          ctx.fillText(`Date: ${dateStr}`, m, 420);
+          ctx.fillText(`Time: ${timeStr}`, m, 465);
+          ctx.font = `italic 28px ${font}`;
+          ctx.fillText(`REQ: /cooking`, m, 510);
+          ctx.setLineDash([10, 8]);
+          ctx.strokeStyle = '#ddd';
+          ctx.beginPath();
+          ctx.moveTo(m, 550);
+          ctx.lineTo(1024 - m, 550);
+          ctx.stroke();
+          const items = [
+            { n: 'Lost Packets', p: '0.0%' },
+            { n: 'Broken Links', p: '4.04' },
+            { n: 'Empty Directory', p: '0kb' },
+            { n: 'Dead End', p: '100%' },
+            { n: 'Heartbeat', p: 'NONE' },
+          ];
+          let y = 640;
+          items.forEach((it) => {
+            ctx.textAlign = 'left';
+            ctx.fillText(it.n, m, y);
+            ctx.textAlign = 'right';
+            ctx.fillText(it.p, 1024 - m, y);
+            y += 65;
+          });
+          ctx.beginPath();
+          ctx.moveTo(m, y + 20);
+          ctx.lineTo(1024 - m, y + 20);
+          ctx.stroke();
+          y += 100;
+          ctx.textAlign = 'left';
+          ctx.fillText('Subtotal Errors', m, y);
+          ctx.textAlign = 'right';
+          ctx.fillText('1', 1024 - m, y);
+          y += 180;
+          ctx.font = `32px ${font}`;
+          ctx.textAlign = 'center';
+          ctx.fillText('Requested resource is cooking...', canvas.width / 2, y);
+          y += 45;
+          ctx.fillText('We are evolving into a SaaS Product Lab & Professional Platform.', canvas.width / 2, y);
+          ctx.font = `italic 28px ${font}`;
+          ctx.fillText('Play with this paper while v3.0 finishes deploying.', canvas.width / 2, 1720);
+        }
+
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.beginPath();
+        const startY = 1765;
+        ctx.moveTo(-200, startY);
+        for (let i = -100; i <= canvas.width + 100; i += 12) ctx.lineTo(i, startY + Math.random() * 20);
+        ctx.lineTo(canvas.width + 200, 1900);
+        ctx.lineTo(-200, 1900);
+        ctx.closePath();
+        ctx.fill();
+        ctx.fillRect(0, 1790, canvas.width, 100);
+        ctx.globalCompositeOperation = 'source-over';
+
+        const tex = new THREE.CanvasTexture(canvas);
+        tex.anisotropy = 16;
+        return tex;
+      }
+
+      function setupCloth() {
+        clothGeo = new THREE.PlaneGeometry(CLOTH_WIDTH, CLOTH_HEIGHT, NX, NY);
+        const textureFront = createTexture(false);
+        const textureBack = createTexture(true);
+
+        const customDepthMat = new THREE.MeshDepthMaterial({
+          depthPacking: THREE.RGBADepthPacking,
+          map: textureFront,
+          alphaTest: 0.5,
+        });
+        const matFront = new THREE.MeshStandardMaterial({
+          map: textureFront,
+          side: THREE.FrontSide,
+          roughness: 0.85,
+          transparent: true,
+          alphaTest: 0.5,
+        });
+        const matBack = new THREE.MeshStandardMaterial({
+          map: textureBack,
+          side: THREE.BackSide,
+          roughness: 0.85,
+          transparent: true,
+          alphaTest: 0.5,
+        });
+        clothMeshFront = new THREE.Mesh(clothGeo, matFront);
+        clothMeshFront.castShadow = true;
+        clothMeshFront.receiveShadow = true;
+        clothMeshFront.customDepthMaterial = customDepthMat;
+        clothMeshBack = new THREE.Mesh(clothGeo, matBack);
+        clothMeshBack.castShadow = true;
+        clothMeshBack.receiveShadow = true;
+        clothMeshBack.customDepthMaterial = customDepthMat;
+        const clothGroup = new THREE.Group();
+        clothGroup.add(clothMeshFront);
+        clothGroup.add(clothMeshBack);
+        clothGroup.position.y = PIN_Y - CLOTH_HEIGHT / 2;
+        scene.add(clothGroup);
+        const pos = clothGeo.attributes.position.array;
+        for (let i = 0; i < pos.length; i += 3) {
+          const p = new Particle(pos[i], pos[i + 1] + clothGroup.position.y, pos[i + 2]);
+          const row = Math.floor(i / 3 / (NX + 1));
+          if (row === 0) p.pinned = true;
+          particles.push(p);
+        }
+        const getIdx = (x, y) => y * (NX + 1) + x;
+        const sx = CLOTH_WIDTH / NX,
+          sy = CLOTH_HEIGHT / NY;
+        for (let y = 0; y <= NY; y++) {
+          for (let x = 0; x <= NX; x++) {
+            const c = getIdx(x, y);
+            if (x < NX) constraints.push(new Constraint(particles[c], particles[getIdx(x + 1, y)], sx));
+            if (y < NY) constraints.push(new Constraint(particles[c], particles[getIdx(x, y + 1)], sy));
+            if (x < NX && y < NY)
+              constraints.push(
+                new Constraint(particles[c], particles[getIdx(x + 1, y + 1)], Math.sqrt(sx * sx + sy * sy), 0.5),
+              );
+            if (x < NX - 2) constraints.push(new Constraint(particles[c], particles[getIdx(x + 2, y)], sx * 2, 0.8));
+            if (y < NY - 2) constraints.push(new Constraint(particles[c], particles[getIdx(x, y + 2)], sy * 2, 0.8));
+            if (y < NY - 4) constraints.push(new Constraint(particles[c], particles[getIdx(x, y + 4)], sy * 4, 0.6));
+          }
+        }
+      }
+
+      function updatePhysics() {
+        const dt = 0.5;
+        const time = Date.now() * 0.001;
+        const wind = new THREE.Vector3(Math.sin(time * 0.5) * 0.006, 0, Math.cos(time * 0.25) * 0.004);
+        const g = new THREE.Vector3(0, GRAVITY, 0);
+        raycaster.setFromCamera(mouse, camera);
+        const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+        const targetPt = new THREE.Vector3();
+        raycaster.ray.intersectPlane(plane, targetPt);
+        if (isDragging) {
+          activeParticles.forEach((item) => {
+            const pull = targetPt.clone().sub(item.p.pos).multiplyScalar(item.f);
+            item.p.pos.add(pull);
+          });
+        } else {
+          const hits = raycaster.intersectObject(clothMeshFront);
+          if (hits.length > 0) {
+            const hit = hits[0].point;
+            const hRadius = 5.0;
+            particles.forEach((p) => {
+              if (p.pinned) return;
+              const d = p.pos.distanceTo(hit);
+              if (d < hRadius) {
+                const strength = Math.pow(1 - d / hRadius, 2);
+                const dir = p.pos.clone().sub(hit).normalize();
+                dir.x *= 0.225 * strength;
+                dir.y *= 0.225 * strength;
+                dir.z = 0.6 * strength * (Math.sin(time * 10 + p.pos.x) * 0.5 + 0.5);
+                p.pos.add(dir);
+              }
+            });
+          }
+        }
+        particles.forEach((p) => {
+          p.addForce(g);
+          p.addForce(wind);
+          p.update(dt);
+        });
+        for (let i = 0; i < 65; i++) constraints.forEach((c) => c.resolve());
+        const posAttr = clothGeo.attributes.position;
+        const groupY = PIN_Y - CLOTH_HEIGHT / 2;
+        for (let i = 0; i < particles.length; i++) {
+          const local = particles[i].pos.clone();
+          local.y -= groupY;
+          posAttr.setXYZ(i, local.x, local.y, local.z);
+        }
+        posAttr.needsUpdate = true;
+        clothGeo.computeVertexNormals();
+      }
+
+      function onDown(e) {
+        updateMouse(e);
+        raycaster.setFromCamera(mouse, camera);
+        const hits = raycaster.intersectObject(clothMeshFront);
+        if (hits.length > 0) {
+          isDragging = true;
+          document.body.classList.replace('cursor-grab', 'cursor-grabbing');
+          const hit = hits[0].point;
+          activeParticles = [];
+          const radius = 2.5;
+          particles.forEach((p) => {
+            if (p.pinned) return;
+            const d = p.pos.distanceTo(hit);
+            if (d < radius) activeParticles.push({ p: p, f: Math.pow(1 - d / radius, 2) * 0.4 });
+          });
+        }
+      }
+      function onMove(e) {
+        updateMouse(e);
+      }
+      function onUp() {
+        isDragging = false;
+        activeParticles = [];
+        document.body.classList.replace('cursor-grabbing', 'cursor-grab');
+      }
+
+      function updateMouse(e) {
+        const cx = e.clientX !== undefined ? e.clientX : e.touches ? e.touches[0].clientX : 0;
+        const cy = e.clientY !== undefined ? e.clientY : e.touches ? e.touches[0].clientY : 0;
+        mouse.x = (cx / window.innerWidth) * 2 - 1;
+        mouse.y = -(cy / window.innerHeight) * 2 + 1;
+      }
+
+      function onResize() {
+        const aspect = window.innerWidth / window.innerHeight;
+        camera.aspect = aspect;
+        if (aspect < 1) camera.position.z = 45 + (1 - aspect) * 20;
+        else camera.position.z = 45;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        initGarden();
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        updateGarden();
+        updatePhysics();
+        renderer.render(scene, camera);
+      }
+
+      window.onload = init;
+    </script>
+  </body>
+</html>
